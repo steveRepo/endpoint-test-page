@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Steve's Randomizer</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="robots"content="noindex,nofollow">
+	</head>
+
+	<body onLoad="randomSentence()">
+		<header class="flex center">
+      <img style="width:15%; margin-bottom:-80px;" src="https://upload.wikimedia.org/wikipedia/commons/9/94/Cloudflare_Logo.png">
+			<h1>Random images and text for cache testing.</h1>
+			<h2>New images appear on page load - pulled from unsplash. Text is local JS.</h2>
+      <p>Minimal. Portable. Nice.</p>
+		</header>
+		<section class="flex center">
+			<div class="box one"></div>
+			<div class="box two"></div>
+			<div class="box three"></div>
+		</section>
+    <div class="container">
+      <h2>Random sentence</h2>
+      <p id="sentence"></p>
+    </div>
+		<script src="assets/scripts/app.js"></script>
+	</body>
+  <script>
+    var verbs, nouns, adjectives, adverbs, preposition;
+    nouns = ["bird", "clock", "door", "tree", "duck", "mouse", "house", "garden", "cat", "dog"];
+    verbs = ["left", "ran", "lost", "walked", "arrived", "rolled", "flew", "breathed", "slept", "found"];
+    adjectives = ["beautiful", "lazy", "fast", "lovely", "smart", "rough", "soft", "hot", "buzzing", "smooth"];
+    adverbs = ["slowly", "elegantly", "precisely", "quickly", "sadly", "humbly", "proudly", "amazingly", "calmly", "passionately"];
+    preposition = ["down", "into", "up", "on", "upon", "below", "above", "through", "across", "towards"];
+
+    function randGen() {
+      return Math.floor(Math.random() * 5);
+    }
+
+    function randomSentence() {
+      var rand1 = Math.floor(Math.random() * 10);
+      var rand2 = Math.floor(Math.random() * 10);
+      var rand3 = Math.floor(Math.random() * 10);
+      var rand4 = Math.floor(Math.random() * 10);
+      var rand5 = Math.floor(Math.random() * 10);
+      var rand6 = Math.floor(Math.random() * 10);
+      //                var randCol = [rand1,rand2,rand3,rand4,rand5];
+      //                var i = randGen();
+      var content = "The " + adjectives[rand1] + " " + nouns[rand2] + " " + adverbs[rand3] + " " + verbs[rand4] + " because a " + nouns[rand1] + " " + adverbs[rand1] + " " + verbs[rand1] + " " + preposition[rand1] + " a " + adjectives[rand2] + " " + nouns[rand5] + " which, became a " + adjectives[rand3] + ", " + adjectives[rand4] + " " + nouns[rand6] + ".";
+
+      document.getElementById('sentence').innerHTML = "&quot;" + content + "&quot;";
+    };
+  </script>  
+	<style>
+		html, body {
+			margin: 20px;
+		  font-family: Arial;
+		}
+
+		header {
+		width: 100%;
+		padding-bottom: 25px;
+		flex-direction: column;
+		}
+    
+    .container {
+      text-align: center;
+    }
+    
+    #sentence{
+      color: black;
+      text-align: center;
+    }
+
+		img {
+			width: 100%;
+		}
+
+		.flex {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.box{
+			width: 300px;
+			height: 200px;
+			padding: 10px;
+			background-repeat: no-repeat;
+		} 
+
+		.one{
+			background-image: url("https://source.unsplash.com/featured/300x201");
+		}
+		.two{
+			background-image: url("https://source.unsplash.com/featured/300x202");
+		}
+		.three{
+			background-image: url("https://source.unsplash.com/featured/300x203");
+		}
+	</style>  
+</html>
